@@ -24,13 +24,13 @@ static void CleanDir(DirectoryInfo directory)
 
     foreach (FileInfo file in files)
     {
-        if ((DateTime.Now - file.LastAccessTime) > TimeSpan.FromMinutes(1))
+        if ((DateTime.Now - file.LastAccessTime) > TimeSpan.FromMinutes(30))
             file.Delete();
     }
 
     foreach(DirectoryInfo subdir in subdirs)
     {
-        if ((DateTime.Now - subdir.LastAccessTime) > TimeSpan.FromMinutes(1))
+        if ((DateTime.Now - subdir.LastAccessTime) > TimeSpan.FromMinutes(30))
         {
             subdir.Delete(true);
         }
